@@ -14,6 +14,7 @@ using MetroFramework;
 using MetroUiTest.classes;
 using MetroUiTest.beansClass;
 using System.IO;
+using System.Diagnostics;
 
 namespace MetroUiTest
 {
@@ -40,7 +41,20 @@ namespace MetroUiTest
             metroTile3.TileImage = ((System.Drawing.Bitmap)(Properties.Resources.Humidity_icon));
             pictureBox1.Image = ((System.Drawing.Bitmap)(Properties.Resources.toronto));
 
+            DataGridViewButtonColumn gridButton = new DataGridViewButtonColumn();
+            gridButton.FlatStyle = FlatStyle.Flat;
+            
+            gridButton.Text = "Details";
+            gridButton.HeaderText = "View Details";
+            gridButton.UseColumnTextForButtonValue = true;
+            //gridButton.
+
+            metroGrid1.Columns.Add(gridButton);
+
             getWeather();
+
+           
+            
             
           
         }
@@ -95,6 +109,9 @@ namespace MetroUiTest
 
         public void populateFeed(int tabSelected)
         {
+            MetroButton b1 = new MetroButton();
+            
+            b1.Text = "View Details";
             List<FeedBean> feedList=null;
             if (tabSelected == 1)
             {
@@ -107,6 +124,7 @@ namespace MetroUiTest
                     metroGrid1.Invoke((MethodInvoker)(delegate()
                     {
                         metroGrid1.Rows.Add(feedData);
+                        
                     }));
 
                 }
@@ -200,6 +218,22 @@ namespace MetroUiTest
             //TFHigh = channel.SelectSingleNode("item").SelectSingleNode("yweather:forecast", manager).Attributes["high"].Value;
             //TFLow = channel.SelectSingleNode("item").SelectSingleNode("yweather:forecast", manager).Attributes["Low"].Value;
 
+
+        }
+
+        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show(e.ColumnIndex.ToString());
+            if(e.ColumnIndex == 4)
+            {
+                string linkUrl = metroGrid1.Rows[e.RowIndex].Cells[3].Value.ToString();
+               // MessageBox.Show(linkUrl);
+                Process.Start(linkUrl);
+            }
+        }
+
+        private void tabTopNews_Click(object sender, EventArgs e)
+        {
 
         }
         
