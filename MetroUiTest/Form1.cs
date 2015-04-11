@@ -14,13 +14,16 @@ using MetroFramework;
 using MetroUiTest.classes;
 using MetroUiTest.beansClass;
 using System.IO;
+
 using System.Diagnostics;
 
 namespace MetroUiTest
 {
     public partial class Form1 : MetroForm
     {
-               
+       
+      
+        
         public Form1()
         {
             InitializeComponent();
@@ -48,8 +51,21 @@ namespace MetroUiTest
             gridButton.HeaderText = "View Details";
             gridButton.UseColumnTextForButtonValue = true;
             //gridButton.
-
+            DataGridViewButtonColumn shareButton = new DataGridViewButtonColumn();
+            shareButton.FlatStyle = FlatStyle.Flat;
+            shareButton.Text = "Tweet";
+            shareButton.HeaderText = "Share";
+            shareButton.UseColumnTextForButtonValue = true;
             metroGrid1.Columns.Add(gridButton);
+            metroGrid1.Columns.Add(shareButton);
+
+
+
+            //twitter things
+
+            
+            
+
 
             getWeather();
 
@@ -228,7 +244,18 @@ namespace MetroUiTest
             {
                 string linkUrl = metroGrid1.Rows[e.RowIndex].Cells[3].Value.ToString();
                // MessageBox.Show(linkUrl);
-                Process.Start(linkUrl);
+                //Process.Start(linkUrl);
+                
+                web form = new web(linkUrl);
+                form.ShowDialog();
+                
+            }
+            if (e.ColumnIndex == 5)
+            {
+                string linkUrl = metroGrid1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                TweeterInput form = new TweeterInput(linkUrl);
+                form.ShowDialog();
+               
             }
         }
 
