@@ -21,8 +21,8 @@ namespace MetroUiTest
 {
     public partial class Form1 : MetroForm
     {
-       
-      
+
+        XmlNodeList forecastList;
         
         public Form1()
         {
@@ -222,9 +222,42 @@ namespace MetroUiTest
 
             metroTile1.Invoke((MethodInvoker)(delegate()
                 {
-                    metroTile1.Text = channel.SelectSingleNode("item").SelectSingleNode("yweather:condition", manager).Attributes["temp"].Value;
-                    metroTile2.Text = channel.SelectSingleNode("yweather:wind", manager).Attributes["chill"].Value;
-                    metroTile3.Text = channel.SelectSingleNode("yweather:atmosphere", manager).Attributes["humidity"].Value;         
+                    metroTile1.Text = channel.SelectSingleNode("item").SelectSingleNode("yweather:condition", manager).Attributes["temp"].Value.ToString() + "°F";
+                    metroTile2.Text = "Chill : "+channel.SelectSingleNode("yweather:wind", manager).Attributes["chill"].Value;
+                    metroTile3.Text = "Humidity : "+channel.SelectSingleNode("yweather:atmosphere", manager).Attributes["humidity"].Value;
+                    forecastList = channel.SelectSingleNode("item").SelectNodes("yweather:forecast", manager);
+                  // XmlNode n1 = forecastList[0].Attributes["text"].InnerText;
+
+                   
+
+                  // metroTile4.Top = pictureBox1.Size.Height + pictureBox1.Top;
+                   //metroTile4.Left = pictureBox1.Left;
+                   metroTile4.Text = getForecastText(0);
+                   metroTile5.Text = getForecastText(1);
+                   metroTile6.Text = getForecastText(2);
+                   metroTile7.Text = getForecastText(3);
+                   metroTile8.Text = getForecastText(4);
+                   
+                   
+                     
+
+                    //MetroTile[] forecastTile = new MetroTile[forecastList.Count];
+                    
+                    //for(int i = 0; i< forecastList.Count ;i++){
+                    //  var metroTile  = new MetroTile();
+                    //  forecastTile[i] = metroTile;
+                    //    metroTile.Name = forecastList[i].Attributes["day"].ToString();
+                    //    metroTile.Text = forecastList[i].Attributes["high"].ToString();
+                    //    metroTile.Location = new Point(100, 100 + (i * 28));
+                    //    metroTile.Visible = true;
+                    //    this.Controls.Add(metroTile);
+                    //    //this.ResumeLayout(false);
+                        
+                    //}
+                    //this.Refresh();
+                    
+
+                   // metroTile4.Text = 
                     //metroTile1.Text = Path.GetFullPath("sunny.png");                
                 }));
            
@@ -235,6 +268,11 @@ namespace MetroUiTest
             //TFLow = channel.SelectSingleNode("item").SelectSingleNode("yweather:forecast", manager).Attributes["Low"].Value;
 
 
+        }
+
+        public string getForecastText(int index)
+        {
+            return forecastList[index].Attributes["day"].Value.ToString() + Environment.NewLine + "High : " + forecastList[index].Attributes["high"].Value.ToString() + "°F" + Environment.NewLine + "Low : " + forecastList[index].Attributes["low"].Value.ToString() + "°F";
         }
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -262,6 +300,12 @@ namespace MetroUiTest
         private void tabTopNews_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            forecastPanel.Top = pictureBox1.Size.Height + pictureBox1.Top + pictureBox1.Top;
+            forecastPanel.Left = (this.ClientSize.Width - forecastPanel.Width) / 2; 
         }
         
 

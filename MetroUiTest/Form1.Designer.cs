@@ -43,6 +43,10 @@
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.tabTopNews = new MetroFramework.Controls.MetroTabPage();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.SrNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Link = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tabBussiness = new MetroFramework.Controls.MetroTabPage();
             this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
             this.SrNo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +54,13 @@
             this.BussinessDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BussinessLink = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.feedSpinner = new MetroFramework.Controls.MetroProgressSpinner();
-            this.SrNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Link = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.metroTile4 = new MetroFramework.Controls.MetroTile();
+            this.metroTile5 = new MetroFramework.Controls.MetroTile();
+            this.metroTile6 = new MetroFramework.Controls.MetroTile();
+            this.metroTile7 = new MetroFramework.Controls.MetroTile();
+            this.metroTile8 = new MetroFramework.Controls.MetroTile();
+            this.forecastPanel = new MetroFramework.Controls.MetroPanel();
+            this.lblForecastPanelHeading = new MetroFramework.Controls.MetroLabel();
             this.metroTabControl1.SuspendLayout();
             this.tabWeather.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,19 +68,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.tabBussiness.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
+            this.forecastPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTabControl1
             // 
+            this.metroTabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.metroTabControl1.Controls.Add(this.tabWeather);
             this.metroTabControl1.Controls.Add(this.tabTopNews);
             this.metroTabControl1.Controls.Add(this.tabBussiness);
-            this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
+            this.metroTabControl1.Multiline = true;
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.ShowToolTips = true;
-            this.metroTabControl1.Size = new System.Drawing.Size(664, 415);
+            this.metroTabControl1.Size = new System.Drawing.Size(984, 688);
+            this.metroTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -82,6 +93,7 @@
             // 
             // tabWeather
             // 
+            this.tabWeather.Controls.Add(this.forecastPanel);
             this.tabWeather.Controls.Add(this.metroTile3);
             this.tabWeather.Controls.Add(this.metroTile2);
             this.tabWeather.Controls.Add(this.pictureBox1);
@@ -89,9 +101,9 @@
             this.tabWeather.HorizontalScrollbarBarColor = true;
             this.tabWeather.HorizontalScrollbarHighlightOnWheel = false;
             this.tabWeather.HorizontalScrollbarSize = 10;
-            this.tabWeather.Location = new System.Drawing.Point(4, 38);
+            this.tabWeather.Location = new System.Drawing.Point(4, 41);
             this.tabWeather.Name = "tabWeather";
-            this.tabWeather.Size = new System.Drawing.Size(656, 373);
+            this.tabWeather.Size = new System.Drawing.Size(976, 643);
             this.tabWeather.TabIndex = 0;
             this.tabWeather.Text = "Weather";
             this.tabWeather.VerticalScrollbarBarColor = true;
@@ -108,7 +120,7 @@
             this.metroTile3.Text = "metroTile3";
             this.metroTile3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.metroTile3.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile3.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile3.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
             this.metroTile3.UseSelectable = true;
             this.metroTile3.UseTileImage = true;
             // 
@@ -122,7 +134,7 @@
             this.metroTile2.Text = "metroTile2";
             this.metroTile2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
             this.metroTile2.UseSelectable = true;
             this.metroTile2.UseTileImage = true;
             // 
@@ -155,14 +167,16 @@
             // tabTopNews
             // 
             this.tabTopNews.Controls.Add(this.metroGrid1);
+            this.tabTopNews.HorizontalScrollbar = true;
             this.tabTopNews.HorizontalScrollbarBarColor = true;
             this.tabTopNews.HorizontalScrollbarHighlightOnWheel = false;
             this.tabTopNews.HorizontalScrollbarSize = 10;
-            this.tabTopNews.Location = new System.Drawing.Point(4, 38);
+            this.tabTopNews.Location = new System.Drawing.Point(4, 41);
             this.tabTopNews.Name = "tabTopNews";
-            this.tabTopNews.Size = new System.Drawing.Size(656, 373);
+            this.tabTopNews.Size = new System.Drawing.Size(976, 643);
             this.tabTopNews.TabIndex = 1;
             this.tabTopNews.Text = "Top News";
+            this.tabTopNews.VerticalScrollbar = true;
             this.tabTopNews.VerticalScrollbarBarColor = true;
             this.tabTopNews.VerticalScrollbarHighlightOnWheel = false;
             this.tabTopNews.VerticalScrollbarSize = 10;
@@ -227,12 +241,36 @@
             this.metroGrid1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.metroGrid1.RowTemplate.Height = 30;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(656, 373);
+            this.metroGrid1.Size = new System.Drawing.Size(976, 643);
             this.metroGrid1.StandardTab = true;
             this.metroGrid1.Style = MetroFramework.MetroColorStyle.Lime;
             this.metroGrid1.TabIndex = 2;
             this.metroGrid1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick);
+            // 
+            // SrNo
+            // 
+            this.SrNo.HeaderText = "No#";
+            this.SrNo.Name = "SrNo";
+            this.SrNo.ReadOnly = true;
+            // 
+            // Title
+            // 
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Link
+            // 
+            this.Link.HeaderText = "Link";
+            this.Link.Name = "Link";
+            this.Link.ReadOnly = true;
             // 
             // tabBussiness
             // 
@@ -240,9 +278,9 @@
             this.tabBussiness.HorizontalScrollbarBarColor = true;
             this.tabBussiness.HorizontalScrollbarHighlightOnWheel = false;
             this.tabBussiness.HorizontalScrollbarSize = 10;
-            this.tabBussiness.Location = new System.Drawing.Point(4, 38);
+            this.tabBussiness.Location = new System.Drawing.Point(4, 41);
             this.tabBussiness.Name = "tabBussiness";
-            this.tabBussiness.Size = new System.Drawing.Size(656, 373);
+            this.tabBussiness.Size = new System.Drawing.Size(976, 643);
             this.tabBussiness.TabIndex = 2;
             this.tabBussiness.Text = "Bussiness";
             this.tabBussiness.VerticalScrollbarBarColor = true;
@@ -296,7 +334,7 @@
             this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid2.Size = new System.Drawing.Size(656, 373);
+            this.metroGrid2.Size = new System.Drawing.Size(976, 643);
             this.metroGrid2.TabIndex = 2;
             // 
             // SrNo1
@@ -332,48 +370,102 @@
             this.feedSpinner.TabIndex = 1;
             this.feedSpinner.UseSelectable = true;
             // 
-            // SrNo
+            // metroTile4
             // 
-            this.SrNo.HeaderText = "No#";
-            this.SrNo.Name = "SrNo";
-            this.SrNo.ReadOnly = true;
+            this.metroTile4.ActiveControl = null;
+            this.metroTile4.Location = new System.Drawing.Point(3, 28);
+            this.metroTile4.Name = "metroTile4";
+            this.metroTile4.Size = new System.Drawing.Size(105, 92);
+            this.metroTile4.TabIndex = 6;
+            this.metroTile4.Text = "metroTile4";
+            this.metroTile4.UseSelectable = true;
             // 
-            // Title
+            // metroTile5
             // 
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
+            this.metroTile5.ActiveControl = null;
+            this.metroTile5.Location = new System.Drawing.Point(114, 28);
+            this.metroTile5.Name = "metroTile5";
+            this.metroTile5.Size = new System.Drawing.Size(110, 92);
+            this.metroTile5.TabIndex = 7;
+            this.metroTile5.Text = "metroTile5";
+            this.metroTile5.UseSelectable = true;
             // 
-            // Description
+            // metroTile6
             // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
+            this.metroTile6.ActiveControl = null;
+            this.metroTile6.Location = new System.Drawing.Point(230, 28);
+            this.metroTile6.Name = "metroTile6";
+            this.metroTile6.Size = new System.Drawing.Size(108, 92);
+            this.metroTile6.TabIndex = 8;
+            this.metroTile6.Text = "metroTile6";
+            this.metroTile6.UseSelectable = true;
             // 
-            // Link
+            // metroTile7
             // 
-            this.Link.HeaderText = "Link";
-            this.Link.Name = "Link";
-            this.Link.ReadOnly = true;
+            this.metroTile7.ActiveControl = null;
+            this.metroTile7.Location = new System.Drawing.Point(344, 28);
+            this.metroTile7.Name = "metroTile7";
+            this.metroTile7.Size = new System.Drawing.Size(103, 92);
+            this.metroTile7.TabIndex = 9;
+            this.metroTile7.Text = "metroTile7";
+            this.metroTile7.UseSelectable = true;
+            // 
+            // metroTile8
+            // 
+            this.metroTile8.ActiveControl = null;
+            this.metroTile8.Location = new System.Drawing.Point(453, 28);
+            this.metroTile8.Name = "metroTile8";
+            this.metroTile8.Size = new System.Drawing.Size(102, 92);
+            this.metroTile8.TabIndex = 10;
+            this.metroTile8.Text = "metroTile8";
+            this.metroTile8.UseSelectable = true;
+            // 
+            // forecastPanel
+            // 
+            this.forecastPanel.Controls.Add(this.lblForecastPanelHeading);
+            this.forecastPanel.Controls.Add(this.metroTile7);
+            this.forecastPanel.Controls.Add(this.metroTile8);
+            this.forecastPanel.Controls.Add(this.metroTile4);
+            this.forecastPanel.Controls.Add(this.metroTile6);
+            this.forecastPanel.Controls.Add(this.metroTile5);
+            this.forecastPanel.HorizontalScrollbarBarColor = true;
+            this.forecastPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.forecastPanel.HorizontalScrollbarSize = 10;
+            this.forecastPanel.Location = new System.Drawing.Point(3, 255);
+            this.forecastPanel.Name = "forecastPanel";
+            this.forecastPanel.Size = new System.Drawing.Size(617, 123);
+            this.forecastPanel.TabIndex = 11;
+            this.forecastPanel.VerticalScrollbarBarColor = true;
+            this.forecastPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.forecastPanel.VerticalScrollbarSize = 10;
+            // 
+            // lblForecastPanelHeading
+            // 
+            this.lblForecastPanelHeading.AutoSize = true;
+            this.lblForecastPanelHeading.Location = new System.Drawing.Point(230, 6);
+            this.lblForecastPanelHeading.Name = "lblForecastPanelHeading";
+            this.lblForecastPanelHeading.Size = new System.Drawing.Size(148, 19);
+            this.lblForecastPanelHeading.TabIndex = 11;
+            this.lblForecastPanelHeading.Text = "Forecast for next 5 days";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(704, 495);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.feedSpinner);
             this.Controls.Add(this.metroTabControl1);
             this.ForeColor = System.Drawing.Color.Red;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
-            this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Tag = "";
             this.Text = "Legendary Magazine";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TransparencyKey = System.Drawing.Color.SteelBlue;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.metroTabControl1.ResumeLayout(false);
             this.tabWeather.ResumeLayout(false);
             this.tabWeather.PerformLayout();
@@ -382,6 +474,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.tabBussiness.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
+            this.forecastPanel.ResumeLayout(false);
+            this.forecastPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -407,6 +501,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewLinkColumn Link;
+        private MetroFramework.Controls.MetroTile metroTile4;
+        private MetroFramework.Controls.MetroTile metroTile7;
+        private MetroFramework.Controls.MetroTile metroTile6;
+        private MetroFramework.Controls.MetroTile metroTile5;
+        private MetroFramework.Controls.MetroTile metroTile8;
+        private MetroFramework.Controls.MetroPanel forecastPanel;
+        private MetroFramework.Controls.MetroLabel lblForecastPanelHeading;
 
     }
 }

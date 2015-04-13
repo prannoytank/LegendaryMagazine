@@ -46,7 +46,7 @@ namespace MetroUiTest
             sv = new TwitterService(_CONSUMERKEY, _CONSUMERSECRET);
 
 
-            if (accessToken != "" && accessTokenSecret != "")
+            if (accessToken.ToString() != "?" && accessTokenSecret.ToString() != "?")
             {
                 btnTweet.Enabled = true;
                 btnVari.Enabled = false;
@@ -55,6 +55,8 @@ namespace MetroUiTest
             else
             {
                 btnTweet.Enabled = false;
+                
+
             }
 
         }
