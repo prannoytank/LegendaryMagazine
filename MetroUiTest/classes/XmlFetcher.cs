@@ -19,6 +19,7 @@ namespace MetroUiTest.classes
         private XmlNode nodeRss;
         private XmlNode nodeChannel;
         private XmlNode nodeItem;
+    
 
 
         public List<FeedBean> fetchFeeds(string url)
@@ -59,6 +60,8 @@ namespace MetroUiTest.classes
                     feedBeans.feedTitle=nodeItem["title"].InnerText;
                     feedBeans.feedDescription = nodeItem["description"].InnerText;
                     feedBeans.feedLink = nodeItem["link"].InnerText;
+                    feedBeans.feedImage = nodeItem["enclosure"].Attributes["url"].InnerText;
+                    
 
 
                     feedList.Add(feedBeans);

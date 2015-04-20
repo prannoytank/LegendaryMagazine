@@ -14,17 +14,21 @@ namespace MetroUiTest
     public partial class web : MetroForm
     {
         private string nav;
-        public web(string navVal)
+        private string title="WEB";
+        public web(string navVal,string titless)
         {
             InitializeComponent();
             nav = navVal;
+            this.title = titless;
         }
 
         private void web_Load(object sender, EventArgs e)
         {
+            this.Text = title;
             webBrowser1.Navigate(nav);
             toolStripTextBox1.Text = nav;
             webBrowser1.ScriptErrorsSuppressed = true;
+            
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)

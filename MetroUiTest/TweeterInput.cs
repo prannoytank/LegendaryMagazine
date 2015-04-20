@@ -44,33 +44,34 @@ namespace MetroUiTest
             txbTweet.Text = Link;
 
             sv = new TwitterService(_CONSUMERKEY, _CONSUMERSECRET);
+            requst = sv.GetRequestToken();
+            ur = sv.GetAuthorizationUri(requst);
 
-
-            if (accessToken.ToString() != "?" && accessTokenSecret.ToString() != "?")
-            {
-                btnTweet.Enabled = true;
-                btnVari.Enabled = false;
-                txbVari.Enabled = false;
-            }
-            else
-            {
-                btnTweet.Enabled = false;
+            //if (accessToken.ToString() != "?" && accessTokenSecret.ToString() != "?")
+            //{
+            //    btnTweet.Enabled = true;
+            //    btnVari.Enabled = false;
+            //    txbVari.Enabled = false;
+            //}
+            //else
+            //{
+            //    btnTweet.Enabled = false;
                 
 
-            }
+            //}
 
         }
 
         private void btnTweet_Click(object sender, EventArgs e)
         {
             string verifier = "";
-            if (btnTweet.Enabled == false)
-            {
+           // if (btnTweet.Enabled == false)
+            //{
+               
+                
+
+               
                 verifier = txbVari.Text;
-                requst = sv.GetRequestToken();
-
-                ur = sv.GetAuthorizationUri(requst);
-
                 OAuthAccessToken acc = sv.GetAccessToken(requst, verifier);
                 sv.AuthenticateWith(acc.Token, acc.TokenSecret);
 
@@ -81,14 +82,14 @@ namespace MetroUiTest
                 accessToken = acc.Token.ToString();
                 accessTokenSecret = acc.TokenSecret.ToString();
 
-                MetroUiTest.Properties.Settings.Default.TwitterAccessToken = accessToken;
-                MetroUiTest.Properties.Settings.Default.TwitterAccessTokenSecret = accessTokenSecret;
-                MetroUiTest.Properties.Settings.Default.Save();
-            }
-            else
-            {
+              //  MetroUiTest.Properties.Settings.Default.TwitterAccessToken = accessToken;
+                //MetroUiTest.Properties.Settings.Default.TwitterAccessTokenSecret = accessTokenSecret;
+                //MetroUiTest.Properties.Settings.Default.Save();
+            //}
+            //else
+            //{
                 sv.AuthenticateWith(accessToken, accessTokenSecret);
-            }
+            //}
 
 
 
@@ -108,7 +109,7 @@ namespace MetroUiTest
 
         private void btnVari_Click(object sender, EventArgs e)
         {
-            web form = new web(ur.ToString());
+            web form = new web(ur.ToString(),"Twitter Authentication");
             form.ShowDialog();
             btnTweet.Enabled = true;
         }

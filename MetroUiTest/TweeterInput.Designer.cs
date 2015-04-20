@@ -88,7 +88,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Enter Varification Code";
+            this.label3.Text = "Enter Verification Code";
             // 
             // txbVari
             // 
@@ -104,7 +104,7 @@
             this.btnVari.Name = "btnVari";
             this.btnVari.Size = new System.Drawing.Size(119, 29);
             this.btnVari.TabIndex = 6;
-            this.btnVari.Text = "Get Varification Code";
+            this.btnVari.Text = "Get Verification Code";
             this.btnVari.UseVisualStyleBackColor = true;
             this.btnVari.Click += new System.EventHandler(this.btnVari_Click);
             // 

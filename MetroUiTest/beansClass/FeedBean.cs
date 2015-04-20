@@ -11,6 +11,7 @@ namespace MetroUiTest.beansClass
         string _title;
         string _description;
         string _list;
+        string _image;
 
         public string feedTitle
         {
@@ -28,6 +29,11 @@ namespace MetroUiTest.beansClass
         {
             get { return _list; }
             set { _list = value; }
+        }
+        public string feedImage
+        {
+            get { return _image; }
+            set { _image = value; }
         }
 
     }
